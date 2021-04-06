@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Tennant Registration Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="..{% static '' %}assets/css/registrationForm.css">
+<!-- //web font -->
+<script>
+function pass_validation()
+{
+var firstpassword=document.f1.password.value;
+var secondpassword=document.f1.password_confirm.value;
+
+if(firstpassword==secondpassword){
+return true;
+}
+else{
+x=document.getElementsByClassName("errorMessage");
+x[0].innerText="Password doesn't match, please re-enter your password.";
+return false;
+}
+}
+</script>
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Tennant Register</h1>
+
+		<div class="main-agileinfo">
+
+			<div class="agileits-top">
+				<form name="f1" method="POST" action="#" onsubmit="return pass_validation()">
+                    <p class="errorMessage" style="color: red"><h4 style="color: red">{{ error }}</h4></p> <br>
+                    {% csrf_token %}
+                    {{ form.first_name }} <br>
+                    {{ form.last_name }} <br>
+					{{ form.email }} <br>
+                    {{ form.phone }} <br>
+                    <div class="wthree-text"><label class="anim">{{ form.textOK }}<span style="color: white;">Ok to Text?</span></label> <br><br><div class="clear">
+                    </div>
+                    <div class="container-fluid" style="z-index: 5; border-style: solid; border-color: rgb(165, 193, 148); border-width: 3px; padding: 15px;">
+                    {{ form.username }} <br>
+                    {{ form.password }} <br>
+                    {{ form.password_confirm }}
+                    </div>
+                     <br>
+					<input type="submit" value="SIGNUP" >
+                    </div>
+                </form>
+				<p>Already have an Account? <a href="/tennant-login"> Login Now!</a></p>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>
